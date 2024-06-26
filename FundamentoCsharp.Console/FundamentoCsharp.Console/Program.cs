@@ -83,7 +83,6 @@ Console.WriteLine($"Menor: {menor}, Menor ou Igual: {menorOuIgual}," +
 
 #endregion
 
-
 #region Operadores de Igualdade e Atribuição
 
 int k = 5;
@@ -109,4 +108,72 @@ Console.WriteLine(k);
 k %= 5; // k = k % 5 = 1 ou 6 % 5 = 1
 Console.WriteLine(k);
 
+#endregion
+
+#region Estrutura de Condição if-else
+
+Console.WriteLine();
+Console.WriteLine("Estrutura de Condição if-else if-else");
+
+var nota = 29;
+
+if (nota >= 70)
+{
+    Console.WriteLine("Aprovado");
+}
+else if (nota >= 30)
+{
+    Console.WriteLine("Em recuperação");
+}
+else
+{
+    Console.WriteLine("Reprovado");
+}
+
+#endregion
+
+#region Estrutura de Condição switch-case
+
+Console.WriteLine();
+Console.WriteLine("Estrutura de Condição switch-case");
+
+var opcao = 2;
+
+switch (opcao)
+{
+    case 1:
+        Console.WriteLine("Opçao UM");
+        break;
+    case 2:
+        Console.WriteLine("Opçao DOIS");
+        break;
+    case 3:
+        Console.WriteLine("Opçao TRÊS");
+        break;
+    default:
+        Console.WriteLine("Opçao DESCONHECIDA");
+        break;
+}
+
+switch (nota)
+{
+    case int n when n >= 70:
+        Console.WriteLine("Aprovado");
+        break;
+    case int n when n >= 30:
+        Console.WriteLine("Em recuperação");
+        break;
+    case int n when n <= 29:
+        Console.WriteLine("Reprovado");
+        break;
+}
+
+string textoNumero = opcao switch
+{
+    1 => "UM",
+    2 => "DOIS",
+    3 => "TRÊS",
+    _ => "DESCONHECIDO"
+};
+Console.WriteLine(textoNumero);
 #endregion
