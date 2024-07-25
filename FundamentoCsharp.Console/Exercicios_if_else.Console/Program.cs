@@ -172,7 +172,6 @@ else if (mes >= 7 &&  mes <=9)
 else if (mes >= 10 &&  mes <=12)
     Console.WriteLine("Primavera");
 
-
 #endregion
 
 #region 11 - Ano bissexto: Peça ao usuário para inserir um ano e determine se é um ano bissexto.
@@ -205,21 +204,63 @@ static bool EhAnoBissexto(int ano)
 
 #region 12 - Verificação de senha: Peça ao usuário para inserir uma senha e verifique se ela corresponde a uma senha previamente definida.
 
+Console.Write("Digite sua senha: ");
+var inputSenha = Console.ReadLine();
 
+if (int.TryParse(inputSenha, out int senha))
+{
+    if(SenhaCorreta(senha))
+        Console.WriteLine("BEM VINDO");
+    else
+        Console.WriteLine("Senha Errada");
+}
+else
+{
+    Console.WriteLine("Senha Invalida");
+}
 
+bool SenhaCorreta(int senhaR)
+{
+    return (senhaR == 123);
+}
 
 #endregion
 
 #region 13 - Classificação de IMC: Peça ao usuário para inserir seu peso e altura e calcule seu IMC. Classifique como abaixo do peso, peso normal, sobrepeso ou obesidade.
 
+Console.WriteLine("Vamos calcular seu IMC");
 
+Console.Write("Informe seu peso: ");
+var inputpeso = Console.ReadLine();
+Console.Write("Informe sua altura: ");
+var inputaltura = Console.ReadLine();
 
+if (float.TryParse(inputpeso, out float peso) && float.TryParse(inputaltura, out float altura))
+{
+    var imc = CalculoIMC(peso, altura);
+    if (imc < 18.5)
+        Console.WriteLine("Abaixo do peso ideal");
+    else if (imc >= 18.5 && imc <= 24.0 )
+        Console.WriteLine("Peso Ideal");
+    else if (imc >= 25 && imc <= 29.9)
+        Console.WriteLine("Acima do peso ideal");
+    else if (imc >= 30 && imc <= 39)
+        Console.WriteLine("Obesidade");
+    else
+        Console.WriteLine("Obesidade grave");
+}
+else
+{
+    Console.WriteLine("Dados invalidos");
+}
 
+float CalculoIMC(float peso, float altura)
+{
+    return  (peso / (altura * altura));
+}
 #endregion
 
 #region 14 - Dia da semana: Peça ao usuário para inserir um número de 1 a 7 e imprima o dia da semana correspondente.
-
-
 
 #endregion
 
